@@ -71,7 +71,7 @@ xAI pricing for API keys, for reference: $5 per 1,000 posts fetched and $10 per 
 - OMP loads custom tools only when a session is created ([sdk.ts][omp-sdk-load]). `/reload-plugins` does not load, update, or remove them. **Live, Code**
 - Resuming an older conversation inside a newly started session keeps the new process's tools. **Live**
 - Subagents reuse their parent session's tool scan. **Code**
-- Plugins can declare tools in `package.json` under `omp.tools` ([plugin types][omp-plugin-types]). `omp plugin install <path>` links a local checkout, and the tool loads from it. **Live**
+- Plugins can declare tools in `package.json` under `omp.tools` ([plugin types][omp-plugin-types]). `omp plugin install <path>` links a local checkout, and `omp plugin install github:GollyLabs/omp-x-search` installs the published repo. The tool loads from both, and `omp plugin uninstall omp-x-search` removes it. **Live**
 - OMP's argument validation keeps unknown top-level fields ([validation.ts][omp-validation]), so a schema that omits a field does not always drop it at dispatch. **Code**
 - `ctx.fetch` and `ctx.settings` are declared on the custom-tool context but are not passed through ([sdk.ts][omp-sdk-bridge]). The tool uses the global `fetch`. **Code**
 - A thrown error becomes an error result that the model sees. **Live**
@@ -90,7 +90,6 @@ xAI pricing for API keys, for reference: $5 per 1,000 posts fetched and $10 per 
 
 - A login that expires in the middle of a session, and the refresh-and-replay against a real expired token.
 - Long-term rate limits with the OAuth login.
-- `omp plugin install github:GollyLabs/omp-x-search`. The local-path install was tested.
 - Logins other than SuperGrok, such as X Premium+.
 
 ## Maintenance
