@@ -1,0 +1,32 @@
+{
+	"name": "omp-x-search",
+	"version": "1.0.0",
+	"description": "Live X search for any oh-my-pi (OMP) coding model, through xAI Grok's x_search and your SuperGrok login.",
+	"license": "MIT",
+	"author": "Jeremy Gollehon",
+	"repository": "github:GollyLabs/omp-x-search",
+	"keywords": [
+		"omp",
+		"oh-my-pi",
+		"omp-plugin",
+		"grok",
+		"xai",
+		"x-search"
+	],
+	"type": "module",
+	"files": [
+		"src/x_search.ts"
+	],
+	"omp": {
+		"tools": "src/x_search.ts"
+	},
+	"scripts": {
+		"test": "bun test",
+		"check": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@oh-my-pi/omptype": "18.4.2",
+		"@types/bun": "1.4.2",
+		"typescript": "7.0.2"
+	}
+}
